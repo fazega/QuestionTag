@@ -3,6 +3,7 @@ padding-top: 50px;
 margin:0;
 width:100%;
 padding:0;
+overflow:  hidden;
 
 
 }
@@ -11,96 +12,104 @@ padding:0;
 text-align: center;
 }
 #contenuPage {
+	overflow:  hidden;
 display:block;
 position:absolute;
 top: 15px;
 left:0;
-width:100%; 
+width:100%;
+height:100vh;
 padding:0; 
 margin:0;
 }
 
 
-.btn-s {  
-	width: 36px;  
-	height: 36px;  
-	border-radius: 15px; 
-	background-color: rgb(46,117,182);
-	}
+
 #ask{
 	overflow:  hidden;
-	display:inline-block;
-	margin-top: 35px;
+	position:absolute;
+	top: 35px;
+	left:0px;
     width: 50%;
-	height:100vh;
+	height:100%;
 	padding:15px;
-	
+	border-right: 2.5px solid black;
+	background-color:white;
 }
 
 
 #answer{
 	overflow:  hidden;
-	margin-top: 35px;
-	display:inline-block;
+	position:absolute;
+	top: 35px;
+	right:0px;
 	margin: 0;
 	width: 50%;
 	height:100vh;
 	padding:15px;
-	height: 100vh;
+	height: 100%;
 	border:1px solid black;
-	border-left: 5px solid black;
+	border-left: 2.5px solid black;
+	background-color:white;
 }
 
 #right{
+	width: 36px;  
+	height: 36px;  
+	border-radius: 15px; 
+	background-color: rgb(46,117,182);
 	display:block;
 	margin:auto;
 	
 }
 #left{
+	width: 36px;  
+	height: 36px;  
+	border-radius: 15px; 
+	background-color: rgb(46,117,182);
 display:block;
 	margin:auto;
 }
 
-@keyframes translaterDroite {
-  from {
-    -webkit-transform: translate(0,0);
-    transform: translate(0,0);
-	width:50%;
-  }
-  to {
-    -webkit-transform: translate(1100px,0);
-    transform: translate(50vw,0);
-	width:0;
-	height:0;
-	border-left:0;
-  }
-}
-
-.translaterDroite
-{
-animation:translaterDroite 1s ease 0s;
-animation-fill-mode:forwards;
-}
-
-
 @keyframes agrandirTaille {
   from {
-    width:50%;
+    width:50%;	
+
   }
   to {
     width:100%;
+
 	
   }
 }
 
-
 .agrandirTaille{
-animation:agrandirTaille 1s ease 0s;
+animation:agrandirTaille 800ms ease 0s;
 animation-fill-mode:forwards;
 }
 
-
-
+#reapparitionAnswer{
+	display:none;
+	width: 66px;  
+	height: 36px;  
+	border-radius: 15px; 
+	background-color: rgb(46,117,182);
+	z-index:1;
+	position:absolute;
+	right:7px;
+	bottom:20px;
+}
+#reapparitionAsk{
+	display:none;
+	width: 66px;  
+	height: 36px;  
+	border-radius: 15px; 
+	background-color: rgb(46,117,182);
+	z-index:1;
+	position:absolute;
+	left:7px;
+	bottom:20px;
+}
 
 
 
