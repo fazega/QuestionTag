@@ -57,8 +57,8 @@
 			</button>
 			
 			<p><br>Ceci est la section Ask, elle est très moche comme la section Bad! Ceci est la section Ask, elle est très moche comme la section Bad! Ceci est la section Ask, elle est très moche comme la section Bad!<p>
-		</div><!-- Ce commentaire pour enlever le whitespace des inline-block, ne pas supprimer
-	--><div id='answer'>
+		</div>
+		<div id='answer'>
 			</button>
 			<h1>Answer</h1>
 			<button type="button" class="btn-s btn-primary" id="left" >	
@@ -78,14 +78,22 @@
 	var ask = document.getElementById('ask');
 	var answer = document.getElementById('answer');	
  
+	function reini(){
+		$('#ask').removeClass('reduireTaille');
+		$('#answer').removeClass('reduireTaille');
+		$('#answer').removeClass('agrandirTaille');
+		$('#ask').removeClass('agrandirTaille');
+
+		
+	}
 	$('#right').click(function() {	
-		ask.style.zIndex='1';
+		reini();
 		$('#ask').addClass('agrandirTaille');
 		document.getElementById('right').style.display='none';
 		document.getElementById('reapparitionAnswer').style.display='block';
 		});
 	$('#left').click(function() {
-		answer.style.zIndex='1';	
+		reini();
 		$('#answer').addClass('agrandirTaille');
 		document.getElementById('left').style.display='none';
 		document.getElementById('reapparitionAsk').style.display='block';
@@ -94,19 +102,29 @@
 		document.getElementById('left').style.display='none';
 		document.getElementById('reapparitionAnswer').style.display='none';
 		document.getElementById('reapparitionAsk').style.display='block';
-		answer.style.width='100%';
-		answer.style.zIndex='1';
-		ask.style.zIndex='0';
+		$('#ask').removeClass('agrandirTaille');
+		$('#ask').removeClass('agrandirTailleDeZero');
+		$('#ask').addClass('reduireTaille');
+		$('#answer').removeClass('reduireTaille');
+		$('#answer').addClass('agrandirTailleDeZero');
+		document.getElementById('left').style.display='none';
+		document.getElementById('reapparitionAsk').style.display='block';
+		
 		});
 	$('#reapparitionAsk').click(function() {	
 		document.getElementById('right').style.display='none';
 		document.getElementById('reapparitionAnswer').style.display='block';
 		document.getElementById('reapparitionAsk').style.display='none';
-		ask.style.width='100%';
-		ask.style.zIndex='1';
-		answer.style.zIndex='0';
-		});		
+		$('#answer').removeClass('agrandirTaille');
+				$('#answer').removeClass('agrandirTailleDeZero');
 
+		$('#answer').addClass('reduireTaille');
+		$('#ask').removeClass('reduireTaille');
+		$('#ask').addClass('agrandirTailleDeZero');
+		document.getElementById('right').style.display='none';
+		document.getElementById('reapparitionAnswer').style.display='block';
+				
+		});	
    });   </script> 
 
 
