@@ -7,17 +7,15 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>QuestionTag</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Custom styles for this template -->
     <link href="style_main.css" rel="stylesheet">
-	 <link href="animate.css" rel="stylesheet">
  
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,7 +25,8 @@
   </head>
 
   <body>
-
+	
+  
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -73,7 +72,10 @@
     
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   
+   
    <script>jQuery(document).ready(function(){  
 	var ask = document.getElementById('ask');
 	var answer = document.getElementById('answer');	
@@ -82,9 +84,7 @@
 		$('#ask').removeClass('reduireTaille');
 		$('#answer').removeClass('reduireTaille');
 		$('#answer').removeClass('agrandirTaille');
-		$('#ask').removeClass('agrandirTaille');
-
-		
+		$('#ask').removeClass('agrandirTaille');	
 	}
 	$('#right').click(function() {	
 		reini();
@@ -126,11 +126,6 @@
 				
 		});	
    });   </script> 
-
-
-   
-    <script>window.jQuery || document.write('<script src="bootstrap/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
     
   </body>
 </html>
