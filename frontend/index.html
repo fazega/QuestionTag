@@ -10,11 +10,12 @@
 
     <title>QuestionTag</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Librairies externes -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
 
 
-    <!-- Custom styles for this template -->
+    <!-- Notre style -->
     <link href="style_main.css" rel="stylesheet">
  
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -40,15 +41,19 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li id="home_link" class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
+		  <ul class="nav navbar-nav navbar-right">
+			<li id="login_link"><a href="#">Se connecter</a></li>
+			<li id="signup_link"><a href="#about">S'incrire</a></li>
+		  </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
- <div  id="contenuPage">
+	<div  id="contenuPage">
 		<div  id='ask'>
 			<h1>Ask</h1>
 			<button type="button" class="btn-s btn-primary" id="right" >
@@ -68,7 +73,54 @@
 		</div>
 		<button type="button" class="btn-s btn-primary" id="reapparitionAnswer" >Answer</button>	
 		<button type="button" class="btn-s btn-primary" id="reapparitionAsk" >Ask</button>
-</div>
+	</div>
+	
+	<div class="panel panel-default" style="display:none;" id="login_form">
+		<div class="panel-heading">
+			<h3 class="panel-title">Connexion</h3>
+		</div>
+		<div class="panel-body">
+			<form>
+				<label for="login_pseudo_input" class="sr-only">Nom de compte</label>
+				<input type="text" id="login_pseudo_input" class="form-control" placeholder="Pseudo" required autofocus>
+				<hr style="margin:5px 0 5px 0;opacity:0;">
+				<label for="login_password_input" class="sr-only">Mot de passe</label>
+				<input type="password" id="login_password_input" class="form-control" placeholder="Mot de passe" required>
+				
+				<div class="checkbox">
+				  <label>
+					<input type="checkbox" value="remember-me"> Se souvenir de moi
+				  </label>
+				</div>
+				<button id="connect_button" class="btn btn-primary btn-block" type="submit">Se connecter</button>
+			</form>
+		</div>
+	</div>
+	
+	<div class="panel panel-default" style="display:none;" id="signup_form">
+		<div class="panel-heading">
+			<h3 class="panel-title">Inscription</h3>
+		</div>
+		<div class="panel-body">
+			<form>
+				<label for="inputPseudo">Nom de compte</label>
+				<input type="text" id="inputPseudo" class="form-control" placeholder="Pseudo" required autofocus>
+				<hr style="margin:5px 0 5px 0;opacity:0;">
+				<label for="inputPassword">Mot de passe</label>
+				<input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+				<hr style="margin:5px 0 5px 0;opacity:0;">
+				<label for="inputPasswordConfirm">Confirmation</label>
+				<input type="password" id="inputPasswordConfirm" class="form-control" placeholder="Mot de passe" required>
+				<hr style="margin:5px 0 5px 0;opacity:0;">
+				<label for="inputMail">Adresse mail</label>
+				<input type="email" id="inputPseudo" class="form-control" placeholder="Mail" required autofocus>
+				<hr style="margin:5px 0 5px 0;opacity:0;">
+				<button id="signup_button" class="btn btn-primary btn-block" type="submit">M'inscrire !</button>
+			</form>
+		</div>
+	</div>
+	
+
     
 
 
@@ -125,7 +177,97 @@
 		document.getElementById('reapparitionAnswer').style.display='block';
 				
 		});	
-   });   </script> 
+		
+		
+	$('#login_link').click(function() {
+		$('#login_form').addClass('animated fadeInDown');
+		$('#login_form').css({"display": "block"});
+		
+		$('#login_form').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
+			function(e) {
+			// Code à exécuter apres la transition
+			$('#login_form').addClass('finished');
+		});
+	});
+	
+	$('login_button').click(function(e) {
+		e.preventDefault();
+		$.post(
+			'backend/login.php',
+			{
+				pseudo: $('login_pseudo_input').val(),
+				password: $('login_password_input').val()
+			},
+			function (rep) {
+				if (rep == 'success') {
+					//$(location).attr('href',"accueil.php");
+					alert('success');
+				} else {
+					$('#login_pseudo_input').addClass('animated swing');
+					$('#login_password_input').addClass('animated swing');
+					alert('no success');
+				}
+			},
+			'text'
+		);
+	});
+	
+	$('#signup_link').click(function() {
+		$('#signup_form').addClass('animated fadeInDown');
+		$('#signup_form').css({"display": "block"});
+		
+		$('#signup_form').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
+			function(e) {
+			// Code à exécuter apres la transition
+			$('#signup_form').addClass('finished');
+		});
+	});
+	
+		
+	function intersect(posX, posY, element) {
+		return ((posX >= element.position().left) 
+		&& (posY >= element.position().top) 
+		&& (posY <= element.position().left+element.width()) 
+		&& (posY <= element.position().top+element.height()));
+	}
+	
+	$(window).click(function(event) {
+		//alert(event.pageX + ' ' + event.pageY + ' '+ $('#login_form').position().left+ ' '+ $('#login_form').position().top+ ' '+$('#login_form').width()+ ' '+$('#login_form').height());
+		if($('#login_form').display != "none" && (intersect(event.pageX, event.pageY, $('#login_form'))==false) && $('#login_form').hasClass('finished')) {
+			$('#login_form').removeClass('fadeInDown');
+			$('#login_form').addClass('fadeOutUp');
+			$('#login_form').css({'animation-duration':'0.5s'});
+			
+			$('#login_form').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
+				function(e) {
+				// Code à exécuter apres la transition
+				$('#login_form').removeClass('animated fadeOutUp');
+				$('#login_form').css({"display": "none",'animation-duration': '1s'});
+			});
+			
+			$('#login_form').removeClass('finished');
+		}
+		
+		if($('#signup_form').display != "none" && (intersect(event.pageX, event.pageY, $('#signup_form'))==false) && $('#signup_form').hasClass('finished')) {
+			$('#signup_form').removeClass('fadeInDown');
+			$('#signup_form').addClass('fadeOutUp');
+			$('#signup_form').css({'animation-duration':'0.5s'});
+			
+			$('#signup_form').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
+				function(e) {
+				// Code à exécuter apres la transition
+				$('#signup_form').removeClass('animated fadeOutUp');
+				$('#signup_form').css({"display": "none",'animation-duration': '1s'});
+			});
+			
+			$('#signup_form').removeClass('finished');
+		}
+	});
+	
+
+   });   
+   
+   </script> 
     
   </body>
 </html>
