@@ -60,7 +60,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li id="home_link" class="active"><a href="#">Home</a></li>
+            <li id="home_link" class="active"><a href="index.html">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -76,60 +76,125 @@
  <div  id="contenuPage" >
 		<div  id='ask' class='container'>
 		
+		<div class='col-md-12'>
 			<h1 class='row'>Ask</h1>
-			<button type="button" class="btn-s btn-primary row" id="right">
+			<button type="button" class="btn-s btn-primary" id="right">
 				<span class="glyphicon glyphicon-resize-full"></span>
 			</button>
 			
-			<div class='row'><p class='col-md-12'><br>Ceci est la section Ask, elle est très moche comme la section Bad! Ceci est la section Ask, elle est très moche comme la section Bad! Ceci est la section Ask, elle est très moche comme la section Bad!<p></div>
-		<form class="form-horizontal">
+			<div class='row'>
+				<p><br>Ceci est la section Ask, elle est très moche comme la section Bad! Ceci est la section Ask, elle est très moche comme la section Bad! Ceci est la section Ask, elle est très moche comme la section Bad!<br><p>
+			</div>
+				
+				
+			<div id='ask-form-panels' class='col-md-6'>
+					<form class="form-horizontal row">
+					
+					<fieldset>
 
-<fieldset>
+						<!-- Form Name -->
+						<legend class='row'>Ask</legend>
 
-<!-- Form Name -->
-<legend class='col-md-12'>Ask</legend>
-
-<!-- Text input-->
-<div class="form-group col-md-12">
-  <label class="col-s-4 control-label" for="Pseudo">Pseudo</label>  
-  <div class="col-s-4">
-  <input id="Pseudo" name="Pseudo" type="text" placeholder="pseudo" class="form-control input-s">
-  <span class="help-block">ou bien connectez-vous</span>  
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="form-group col-md-12">
-  <label class="col-s-4 control-label" for="question">Votre Question</label>
-  <div class="col-s-4">                     
-    <textarea class="form-control" id="question" name="question"></textarea>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-<fieldset>
-<legend class='col-md-12'>Les réponses</legend>
-<p>Voila voila ici je reponds a ta question <br> ici aussi et blabla<br> ici aussi et blabla<br> ici aussi et blabla<br> ici aussi et blabla</p>
-<div class="form-group col-md-12">
-
-  <div class="col-s-4">                     
-    <textarea class="form-control" id="reponse" name="reponse"></textarea>
-  </div>
-</div>
-</fieldset>
-		
-		
-		
-		
-		
-		
-		
+						<!-- Text input-->
+						
+						<div class="form-group row">
+						<div class="col-md-12">
+						  <label class="control-label" for="pseudo-form">Pseudo</label>  
+						  
+						  <input id="pseudo-form" name="pseudo-form" type="text" placeholder="pseudo" class="form-control input-s">
+						  <span class="help-block">ou bien connectez-vous</span>  
+						  
+						</div>
+						</div>
+						<!-- Textarea -->
+						
+						<div class="form-group row">
+						<div class="col-md-12">
+						  <label class="control-label" for="question-form">Votre Question</label>
+						                      
+							<textarea class="form-control" id="question-form" name="question-form"></textarea>
+						 
+						</div>
+						</div>
+					</fieldset>
+					
+					</form>
+				
+			
+				<div class='row'>
+				
+					<fieldset>
+						<legend class='row'>Les réponses</legend>
+						
+						<p class="row">Voila voila ici je reponds a ta question <br> ici aussi et blabla<br> ici aussi et blabla<br> ici aussi et blabla<br> ici aussi et blabla</p>
+						
+						<div class="form-group row">
+						  	<div class="col-md-12">                     
+							<textarea class="form-control" id="reponse" name="reponse"></textarea>
+						  </div>
+						</div>
+					</fieldset>
+				
+				</div>
+			</div>
+			<div id='ask-add-answers-panel' class='col-md-6'>
+				<div class="col-md-12">
+					<fieldset>
+						<legend>Ajouter des Answerers</legend>
+					<div class="col-md-12">
+					<div id="answerers-conteneur">
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-default btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-success btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-warning btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-danger btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+				</div>
+				</div>
+				</fieldset>
+				</div>
+			</div>
+		</div>
 		
 		</div>
+		
+		
 		<div id='answer'>
-			</button>
+			
 			<h1>Answer</h1>
 			<button type="button" class="btn-s btn-primary" id="left" >	
 				<span class="glyphicon glyphicon-resize-full"></span>
@@ -141,6 +206,8 @@
 		<button type="button" class="btn-s btn-primary" id="reapparitionAsk" >Ask</button>
 </div>
     
+	
+	
 <div class="panel panel-default" style="display:none;" id="login_form">
 		<div class="panel-heading">
 			<h3 class="panel-title">Connexion</h3>
@@ -225,14 +292,14 @@
 		$('#ask').removeClass('agrandirTaille');
 	}
 
-	$('#right').click(function() {	
+	$('#ask').click(function() {	
 		reini();
 		$('#ask').addClass('agrandirTaille');
 		document.getElementById('right').style.display='none';
 		document.getElementById('reapparitionAnswer').style.display='block';
 		
 		});
-	$('#left').click(function() {
+	$('#answer').click(function() {
 		reini();
 		$('#answer').addClass('agrandirTaille');
 		document.getElementById('left').style.display='none';
