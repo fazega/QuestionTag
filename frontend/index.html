@@ -12,11 +12,15 @@
     <title>QuestionTag</title>
 
     <!-- Librairies externes -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet">
+	
+	<!--cette balise permet d'inclure le .html depuis un .php, si on ne la met pas on a un probleme de chemin dans les inclusions ... -->
+	<base href="http://localhost/questiontag/">
+	
+    <link href="frontend/css/bootstrap.min.css" rel="stylesheet">
+	<link href="frontend/css/animate.css" rel="stylesheet">
 
     <!-- Notre style -->
-    <link href="style_main.css" rel="stylesheet">
+    <link href="frontend/style_main.css" rel="stylesheet">
 	
  
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -28,7 +32,8 @@
 
   <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+  
+	<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -37,36 +42,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">QuestionTag</a>
+          <a class="navbar-brand">QuestionTag</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li id="home_link" class="active"><a href="backend/index.php">Home</a></li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav> <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">QuestionTag</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li id="home_link" class="active"><a href="index.html">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-		  <ul class="nav navbar-nav navbar-right">
-			<li id="login_link"><a href="#">Se connecter</a></li>
-			<li id="signup_link"><a href="#about">S'incrire</a></li>
+		  <ul id="navbar_right" class="nav navbar-nav navbar-right">
+			<li id="login_link"><a>Se connecter</a></li>
+			<li id="signup_link"><a>S'incrire</a></li>
 		  </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -222,10 +208,10 @@
 				
 				<div class="checkbox">
 				  <label>
-					<input type="checkbox" value="remember-me"> Se souvenir de moi
+					<input type="checkbox" value="remember-me"> Se souvenir de moi</input>
 				  </label>
 				</div>
-				<button id="connect_button" class="btn btn-primary btn-block" type="submit">Se connecter</button>
+				<button type="submit" href="#" id="connect_button" class="btn btn-primary btn-block">Se connecter</button>
 			</form>
 		</div>
 	</div>
@@ -254,7 +240,7 @@
 	
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	 <script src="js/bootstrap.min.js"></script>
+	 <script src="frontend/js/bootstrap.min.js"></script>
    <script>
    
    
@@ -345,27 +331,43 @@
 		});
 	});
 	
-	$('login_button').click(function(e) {
+	$('#connect_button').click(function(e) {
 		e.preventDefault();
 		$.post(
 			'backend/login.php',
 			{
-				pseudo: $('login_pseudo_input').val(),
-				password: $('login_password_input').val()
+				pseudo: $("#login_pseudo_input").val(),
+				password: $("#login_password_input").val()
 			},
 			function (rep) {
 				if (rep == 'success') {
-					//$(location).attr('href',"accueil.php");
-					alert('success');
+					$(location).attr('href',"backend/index.php");
 				} else {
-					$('#login_pseudo_input').addClass('animated swing');
-					$('#login_password_input').addClass('animated swing');
-					alert('no success');
+					$s = rep.split(";")[1];
+					if($s=="password") {
+						$('#login_password_input').addClass('animated swing');
+					}
+					else if($s=="pseudo") {
+						$('#login_pseudo_input').addClass('animated swing');
+						$('#login_password_input').addClass('animated swing');
+					}
+					$('#login_password_input').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
+						function(e) {
+						// Code à exécuter apres la transition
+						$('#login_password_input').removeClass('animated swing');
+					});
+					$('#login_pseudo_input').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
+						function(e) {
+						// Code à exécuter apres la transition
+						$('#login_pseudo_input').removeClass('animated swing');
+					});
+					
 				}
 			},
 			'text'
 		);
 	});
+
 	
 	$('#signup_link').click(function() {
 		$('#signup_form').addClass('animated fadeInDown');

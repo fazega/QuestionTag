@@ -1,5 +1,5 @@
 <?php
-	/*if(!empty($_POST)) {
+	if(!empty($_POST)) {
 		$pseudo = $_POST['pseudo'];
 		$password = $_POST['password'];
 		
@@ -8,7 +8,7 @@
 			$bdd = new PDO('mysql:host=localhost;dbname=questiontag;charset=utf8', 'root', '');
 		}
 		catch (Exception $e){
-				die('Erreur : ' . $e->getMessage());
+			die('Erreur : ' . $e->getMessage());
 		}
 		
 		$req = $bdd->query("SELECT * FROM users WHERE pseudo='$pseudo'");
@@ -18,19 +18,20 @@
 			
 			//Si le password match, on modifie les valeurs et on renvoie un succès
 			if($donnees['password'] == $password) {
+				session_start();
+				$_SESSION['pseudo']=$pseudo;
 				echo 'success';
 			}
 			
 			//Sinon, bah on renvoie un fail :p
 			else {
-				echo 'fail; password incorrect';
+				echo 'fail;password';
 			}
 		}
 		else {
 			//Le pseudo n'existe pas, on renvoie un fail
-			echo 'fail; pseudo incorrect';
+			echo 'fail;pseudo';
 		}
-	}*/
-	echo 'success';
-
+	}
+	
 ?>
