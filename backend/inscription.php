@@ -12,15 +12,16 @@
 		$req = $bdd->prepare("SELECT * FROM users WHERE pseudo = :m_pseudo");
 		$req->execute(array('m_pseudo'=>$_POST['pseudo']));
 		if($req->fetch() >= 1) {
-			echo 'already taken';
+			echo 'fail;pseudo';
 		}
 		else {
-			$_SESSION['email'] = $_POST['email'];
+			session_start();
+			$_SESSION['mail'] = $_POST['mail'];
 			$_SESSION['pseudo'] = $_POST['pseudo'];
 			$_SESSION['password'] = $_POST['password'];
 
 			$req = $bdd->prepare('INSERT INTO users VALUES(null,:m_pseudo,:m_password,:m_mail,CURRENT_TIMESTAMP)');
-			$req->execute(array('m_pseudo'=>$_SESSION['pseudo'], 'm_password'=>$_SESSION['password'], 'm_mail'=>$_SESSION['email']));
+			$req->execute(array('m_pseudo'=>$_SESSION['pseudo'], 'm_password'=>$_SESSION['password'], 'm_mail'=>$_SESSION['mail']));
 			echo 'success';
 		}
 	}
