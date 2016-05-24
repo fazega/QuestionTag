@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,8 +15,8 @@
     <!-- Librairies externes -->
 	
 	<!--cette balise permet d'inclure le .html depuis un .php, si on ne la met pas on a un probleme de chemin dans les inclusions ... -->
-	
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">
 
     <!-- Notre style -->
@@ -33,8 +32,7 @@
 
   <body>
 
-  
-	<nav class="navbar navbar-default navbar-fixed-top">
+    </nav> <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -43,15 +41,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand">QuestionTag</a>
+          <a class="navbar-brand" href="#">QuestionTag</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li id="home_link" class="active"><a href="index.php">Home</a></li>
-            <li><a>About</a></li>
-            <li><a>Contact</a></li>
+            <li id="home_link" class="active"><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
-		  <ul id="navbar_right" class="nav navbar-nav navbar-right">
+		  <ul class="nav navbar-nav navbar-right">
 		  
 		  <?php
 			if(count($_SESSION)!=0 AND $_SESSION['pseudo']!=null) {?>
@@ -74,26 +72,268 @@
 
 
  <div  id="contenuPage" >
+ 			
 		<div  id='ask' class='container'>
 		
-		<div class='col-md-12'>
+		
+		
+			<div id='ask-chat-panel'>
+		<div class='row'>
+		<div id='panel-chat-corps' class='col-md-offset-1 col-md-9'>
+			<div id='question-section'>
+			<p><br>Michel : <strong>Comment etre pris au CSU?</strong></p>
+			</div>
+			<div id='chat-section'>
+			<div id='reponses-answerers-block'>
+			<fieldset><legend></legend>
+
+
+
+
+			
+			<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>PA</strong><br>Demande à Ducoulombier zzzzzzzzzzzzzzzzzzzzzzzz zzzzzzzzzzzzzz zzzzzzzzz dddddddddddddddddddd gggggggggggggggggggg dddddddddddddd ggggggggggggg</p>	
+						</div>
+						</div>
+				<div class="row message-block-droite">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-success btn-circle btn-lg">M</button>
+						</div>
+						<div class="div-description">
+						<p><strong>Michel</strong><br>Arrête de troller</p>	
+						</div>
+						</div>
+						
+						<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>PA</strong><br>Demande à Ducoulombier</p>	
+						</div>
+						</div>
+				<div class="row message-block-droite">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-success btn-circle btn-lg">M</button>
+						</div>
+						<div class="div-description">
+						<p><strong>Michel</strong><br>Arrête de troller</p>	
+						</div>
+						</div>
+						
+						<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>PA</strong><br>Demande à Ducoulombier</p>	
+						</div>
+
+
+						</div>
+				<div class="row message-block-droite">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-success btn-circle btn-lg">M</button>
+						</div>
+						<div class="div-description">
+						<p><strong>Michel</strong><br>Arrête de troller</p>	
+						</div>
+						</div>
+						
+						<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>PA</strong><br>Demande à Ducoulombier</p>	
+						</div>
+						</div>
+				<div class="row message-block-droite">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-success btn-circle btn-lg">M</button>
+						</div>
+						<div class="div-description">
+						<p><strong>Michel</strong><br>Arrête de troller</p>	
+						</div>
+						</div>
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+						<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>PA</strong><br>Demande à Ducoulombier</p>	
+						</div>
+						</div>
+				<div class="row message-block-droite">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-success btn-circle btn-lg">M</button>
+						</div>
+						<div class="div-description">
+						<p><strong>Michel</strong><br>Arrête de troller</p>	
+
+
+
+
+
+
+
+						</div>
+						</div>
+			</fieldset>
+			</div>
+			<div id='my-response-form'>
+			<div  class="form-group">
+
+
+						
+						  <label class="control-label" for="question-form">Moi:</label>
+
+
+
+						                      
+							<textarea class="form-control" id="question-form" name="question-form"></textarea>
+						 
+						
+						</div>
+						</div>
+			</div>
+		</div>
+		
+				</div>
+</div>	
+
+<div id='ask-add-answers-panel'>
+
+
+
+
+			
+				<div id='box-answerer-envoye'>
+
+
+					<fieldset>
+						<legend>Avis de réponse envoyé à</legend>
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-default btn-circle btn-s">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-success btn-circle btn-s">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-info btn-circle btn-s">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+						</fieldset>
+				
+				</div>
+				<div id='box-answerer-ajoute'>
+					<fieldset>
+						<legend>Participants à la réponse</legend>
+					
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-warning btn-circle btn-s">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+						<div class="row answerer-block">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-danger btn-circle btn-s">P</button>
+						</div>
+						<div class="div-description">
+						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
+						</div>
+						</div>
+						</fieldset>
+					</div>
+				
+				</div>
+		
+		
+		
+		
+		
+		
+		<div class='col-md-offset-1 col-md-10'>
 			<h1 class='row'>Ask</h1>
 			<button type="button" class="btn-s btn-primary" id="right">
 				<span class="glyphicon glyphicon-resize-full"></span>
 			</button>
 			
-			<div class='row'>
-				<p><br>Ceci est la section Ask, elle est très moche comme la section Bad! Ceci est la section Ask, elle est très moche comme la section Bad! Ceci est la section Ask, elle est très moche comme la section Bad!<br><p>
+			<div id='description-ask' class='row'>
+				<p><br>Dans cette rubrique vous pouvez poser votre question instantanément pour une réponse en live!<br><p>
 			</div>
 				
-				
-			<div id='ask-form-panels' class='col-md-6'>
+			<div class=' col-md-12'>
+			<div id='ask-form-panels' class=' col-md-12'>
 					<form class="form-horizontal row">
 					
 					<fieldset>
 
 						<!-- Form Name -->
-						<legend class='row'>Ask</legend>
+						<legend></legend>
 
 						<!-- Text input-->
 						
@@ -109,91 +349,41 @@
 						<!-- Textarea -->
 						
 						<div class="form-group row">
-						<div class="col-md-12">
+						<div class="col-md-10">
 						  <label class="control-label" for="question-form">Votre Question</label>
 						                      
 							<textarea class="form-control" id="question-form" name="question-form"></textarea>
 						 
 						</div>
 						</div>
+					<button type="button" class="btn-custom" id="button-valider-question" >
+				Valider
+			</button>
 					</fieldset>
 					
 					</form>
-				
 			
-				<div class='row'>
-				
-					<fieldset>
-						<legend class='row'>Les réponses</legend>
-						
-						<p class="row">Voila voila ici je reponds a ta question <br> ici aussi et blabla<br> ici aussi et blabla<br> ici aussi et blabla<br> ici aussi et blabla</p>
-						
-						<div class="form-group row">
-						  	<div class="col-md-12">                     
-							<textarea class="form-control" id="reponse" name="reponse"></textarea>
-						  </div>
-						</div>
-					</fieldset>
-				
-				</div>
+
+
+
 			</div>
-			<div id='ask-add-answers-panel' class='col-md-6'>
-				<div class="col-md-12">
-					<fieldset>
-						<legend>Ajouter des Answerers</legend>
-					<div class="col-md-12">
-					<div id="answerers-conteneur">
-						<div class="row answerer-block">
-						<div class="div-bouton">
-						<button type="button" class="btn btn-default btn-circle btn-lg">P</button>
-						</div>
-						<div class="div-description">
-						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
-						</div>
-						</div>
-						<div class="row answerer-block">
-						<div class="div-bouton">
-						<button type="button" class="btn btn-success btn-circle btn-lg">P</button>
-						</div>
-						<div class="div-description">
-						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
-						</div>
-						</div>
-						<div class="row answerer-block">
-						<div class="div-bouton">
-						<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
-						</div>
-						<div class="div-description">
-						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
-						</div>
-						</div>
-						<div class="row answerer-block">
-						<div class="div-bouton">
-						<button type="button" class="btn btn-warning btn-circle btn-lg">P</button>
-						</div>
-						<div class="div-description">
-						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
-						</div>
-						</div>
-						<div class="row answerer-block">
-						<div class="div-bouton">
-						<button type="button" class="btn btn-danger btn-circle btn-lg">P</button>
-						</div>
-						<div class="div-description">
-						<p>PA<br>#Reason #Guitar #Aviron #Voile</p>	
-						</div>
-						</div>
-				</div>
-				</div>
-				</fieldset>
-				</div>
+			
+
+		
+			
+			
+			
+		</div>
 			</div>
-		</div>
+			
+			
+			
+			</div>
+	
+	
 		
-		</div>
-		
-		
-		<div id='answer'>
+
+		<div id='answer' class='container'>
 			
 			<h1>Answer</h1>
 			<button type="button" class="btn-s btn-primary" id="left" >	
@@ -204,10 +394,12 @@
 		</div>
 		<button type="button" class="btn-s btn-primary" id="reapparitionAnswer" >Answer</button>	
 		<button type="button" class="btn-s btn-primary" id="reapparitionAsk" >Ask</button>
-</div>
+		
+		</div>
     
+
 	
-	
+
 <div class="panel panel-default" style="display:none;" id="login_form">
 		<div class="panel-heading">
 			<h3 class="panel-title">Connexion</h3>
@@ -222,10 +414,10 @@
 				
 				<div class="checkbox">
 				  <label>
-					<input type="checkbox" value="remember-me"> Se souvenir de moi</input>
+					<input type="checkbox" value="remember-me"> Se souvenir de moi
 				  </label>
 				</div>
-				<button type="submit" href="#" id="connect_button" class="btn btn-primary btn-block">Se connecter</button>
+				<button id="connect_button" class="btn btn-primary btn-block" type="submit">Se connecter</button>
 			</form>
 		</div>
 	</div>
@@ -235,17 +427,17 @@
 		</div>
 		<div class="panel-body">
 			<form>
-				<label for="signup_pseudo_input">Nom de compte</label>
-				<input type="text" id="signup_pseudo_input" class="form-control" placeholder="Pseudo" required>
+				<label for="inputPseudo">Nom de compte</label>
+				<input type="text" id="inputPseudo" class="form-control" placeholder="Pseudo" required autofocus>
 				<hr style="margin:5px 0 5px 0;opacity:0;">
-				<label for="signup_password_input">Mot de passe</label>
-				<input type="password" id="signup_password_input" class="form-control" placeholder="Mot de passe" required>
+				<label for="inputPassword">Mot de passe</label>
+				<input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
 				<hr style="margin:5px 0 5px 0;opacity:0;">
-				<label for="signup_passwordconfirm_input">Confirmation</label>
-				<input type="password" id="signup_passwordconfirm_input" class="form-control" placeholder="Mot de passe" required>
+				<label for="inputPasswordConfirm">Confirmation</label>
+				<input type="password" id="inputPasswordConfirm" class="form-control" placeholder="Mot de passe" required>
 				<hr style="margin:5px 0 5px 0;opacity:0;">
-				<label for="signup_mail_input">Adresse mail</label>
-				<input type="email" id="signup_mail_input" class="form-control" placeholder="Mail" required>
+				<label for="inputMail">Adresse mail</label>
+				<input type="email" id="inputPseudo" class="form-control" placeholder="Mail" required autofocus>
 				<hr style="margin:5px 0 5px 0;opacity:0;">
 				<button id="signup_button" class="btn btn-primary btn-block" type="submit">M'inscrire !</button>
 			</form>
@@ -280,6 +472,13 @@
 	answer.style.height=answer.offsetHeight+'px';
 	}
 
+	
+	<!-- Je définis la hauteur du bloc Chat pour qu'il apparaisse entièrement à l'écran -->
+	var hauteur_chat=window.innerHeight-180-(document.getElementById('question-section').offsetHeight);
+	document.getElementById('chat-section').style.height=hauteur_chat+"px";
+	
+	<!-- Je définis la hauteur du bloc Réponses des answerers de Chat pour que sa taille corresponde au Chat -->
+	document.getElementById('reponses-answerers-block').style.height=hauteur_chat-80+"px";
 	};
 	window.addEventListener('resize',redim,false);
 	
@@ -297,14 +496,16 @@
 		$('#ask').addClass('agrandirTaille');
 		document.getElementById('right').style.display='none';
 		document.getElementById('reapparitionAnswer').style.display='block';
-		
+		redim();
+
 		});
 	$('#answer').click(function() {
 		reini();
 		$('#answer').addClass('agrandirTaille');
 		document.getElementById('left').style.display='none';
 		document.getElementById('reapparitionAsk').style.display='block';
-		
+		redim();
+
 		});
 	$('#reapparitionAnswer').click(function() {
 		document.getElementById('left').style.display='none';
@@ -317,7 +518,8 @@
 		$('#answer').addClass('agrandirTailleDeZero');
 		document.getElementById('left').style.display='none';
 		document.getElementById('reapparitionAsk').style.display='block';
-		
+	
+
 		});
 	$('#reapparitionAsk').click(function() {	
 		document.getElementById('right').style.display='none';
@@ -333,11 +535,26 @@
 				
 		});	
 		
+
+	$('#button-valider-question').click(function() {	
+		$('#ask-form-panels').addClass('animated slideOutLeft');
+		$('#description-ask').addClass('animated slideOutLeft');
+		$('#ask-add-answers-panel').addClass('animated slideInRight');
+		$('#ask-add-answers-panel').css({"display": "block"});
+		$('#ask-chat-panel').addClass('animated slideInRight');
+		$('#ask-chat-panel').css({"display": "block"});
+
 		
-		
-		
-			
-	$('#login_link').click(function() {
+		redim();
+		<!-- Met le scroll en bas -->
+		element=document.getElementById('reponses-answerers-block');
+		element.scrollTop = element.scrollHeight;
+	});	
+
+
+
+
+$('#login_link').click(function() {
 		$('#login_form').addClass('animated fadeInDown');
 		$('#login_form').css({"display": "block"});
 		
@@ -359,6 +576,7 @@
 			function (rep) {
 				if (rep == 'success') {
 					$(location).attr('href',"../frontend/index.php");
+
 				} else {
 					$s = rep.split(";")[1];
 					if($s=="password") {
@@ -367,6 +585,7 @@
 					else if($s=="pseudo") {
 						$('#login_pseudo_input').addClass('animated swing');
 						$('#login_password_input').addClass('animated swing');
+
 					}
 					$('#login_password_input').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
 						function(e) {
