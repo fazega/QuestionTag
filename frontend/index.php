@@ -15,7 +15,6 @@
     <!-- Librairies externes -->
 	
 	<!--cette balise permet d'inclure le .html depuis un .php, si on ne la met pas on a un probleme de chemin dans les inclusions ... -->
-
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">
 
@@ -31,7 +30,6 @@
   </head>
 
   <body>
-
     </nav> <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -45,7 +43,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li id="home_link" class="active"><a href="index.html">Home</a></li>
+            <li id="home_link" class="active"><a href="index.php">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -79,17 +77,13 @@
 		
 			<div id='ask-chat-panel'>
 		<div class='row'>
-		<div id='panel-chat-corps' class='col-md-offset-1 col-md-9'>
+		<div id='panel-chat-corps' class='col-xs-offset-1 col-xs-9'>
 			<div id='question-section'>
 			<p><br>Michel : <strong>Comment etre pris au CSU?</strong></p>
 			</div>
 			<div id='chat-section'>
 			<div id='reponses-answerers-block'>
 			<fieldset><legend></legend>
-
-
-
-
 			
 			<div class="row message-block-gauche">
 						<div class="div-bouton">
@@ -132,8 +126,6 @@
 						<div class="div-description">
 						<p><strong>PA</strong><br>Demande à Ducoulombier</p>	
 						</div>
-
-
 						</div>
 				<div class="row message-block-droite">
 						<div class="div-bouton">
@@ -172,15 +164,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
 						
 						<div class="row message-block-gauche">
 						<div class="div-bouton">
@@ -196,13 +179,6 @@
 						</div>
 						<div class="div-description">
 						<p><strong>Michel</strong><br>Arrête de troller</p>	
-
-
-
-
-
-
-
 						</div>
 						</div>
 			</fieldset>
@@ -210,12 +186,8 @@
 			<div id='my-response-form'>
 			<div  class="form-group">
 
-
 						
 						  <label class="control-label" for="question-form">Moi:</label>
-
-
-
 						                      
 							<textarea class="form-control" id="question-form" name="question-form"></textarea>
 						 
@@ -229,36 +201,11 @@
 </div>	
 
 <div id='ask-add-answers-panel'>
-
-
-
-
 			
 				<div id='box-answerer-envoye'>
-
-
 					<fieldset>
 						<legend>Avis de réponse envoyé à</legend>
 					
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 						<div class="row answerer-block">
 						<div class="div-bouton">
 						<button type="button" class="btn btn-default btn-circle btn-s">P</button>
@@ -322,7 +269,7 @@
 				<span class="glyphicon glyphicon-resize-full"></span>
 			</button>
 			
-			<div id='description-ask' class='row'>
+			<div id='description-panel' class='row'>
 				<p><br>Dans cette rubrique vous pouvez poser votre question instantanément pour une réponse en live!<br><p>
 			</div>
 				
@@ -363,12 +310,8 @@
 					
 					</form>
 			
-
-
-
 			</div>
 			
-
 		
 			
 			
@@ -382,15 +325,73 @@
 	
 	
 		
-
 		<div id='answer' class='container'>
 			
 			<h1>Answer</h1>
 			<button type="button" class="btn-s btn-primary" id="left" >	
 				<span class="glyphicon glyphicon-resize-full"></span>
 			</button>
+			<div id='description-panel' class='row'>
+			<p><br>Répondez aux questions ciblées pour vous, selon vos skills!</p>
+			</div>
+		<div id='answer-myAnswers-panel'>
+		<div class='row'>
+		<div id='panel-myAnswers-corps' class='col-xs-offset-1 col-xs-10'>
+		<fieldset><legend></legend>
+			<p>Questions suceptibles de vous intéresser : </p>
+			<div id='myAnswers-section'>
 			
-			<p><br>Ceci est la section Answer, elle est magnifique presque aussi belle que la section Aviron! Ceci est la section Answer, elle est magnifique presque aussi belle que la section Aviron! Ceci est la section Answer, elle est magnifique presque aussi belle que la section Aviron!<p>
+			
+			<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-success btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>PA</strong><br>Comment faire cuire des pâtes ?</p>	
+						</div>
+						</div>
+				<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-danger btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>Michel</strong><br>Comment faire pour se lever tôt?</p>	
+						</div>
+						</div>
+				<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-warning btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>Ben</strong><br>Pourquoi mettre un coucher de soleil en fond ?</p>	
+						</div>
+						</div>
+			<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-default btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>PA</strong><br>Quand?</p>	
+						</div>
+						</div>
+						
+			<div class="row message-block-gauche">
+						<div class="div-bouton">
+						<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
+						</div>
+						<div class="div-description">
+						<p><strong>PA</strong><br>Demande à Ducoulombier</p>	
+						</div>
+						</div>
+				
+				
+			</fieldset>
+			
+			</div>
+		</div>
+		
+		</div>
+		</div>	
 		</div>
 		<button type="button" class="btn-s btn-primary" id="reapparitionAnswer" >Answer</button>	
 		<button type="button" class="btn-s btn-primary" id="reapparitionAsk" >Ask</button>
@@ -399,7 +400,6 @@
     
 
 	
-
 <div class="panel panel-default" style="display:none;" id="login_form">
 		<div class="panel-heading">
 			<h3 class="panel-title">Connexion</h3>
@@ -497,7 +497,6 @@
 		document.getElementById('right').style.display='none';
 		document.getElementById('reapparitionAnswer').style.display='block';
 		redim();
-
 		});
 	$('#answer').click(function() {
 		reini();
@@ -505,7 +504,6 @@
 		document.getElementById('left').style.display='none';
 		document.getElementById('reapparitionAsk').style.display='block';
 		redim();
-
 		});
 	$('#reapparitionAnswer').click(function() {
 		document.getElementById('left').style.display='none';
@@ -519,7 +517,6 @@
 		document.getElementById('left').style.display='none';
 		document.getElementById('reapparitionAsk').style.display='block';
 	
-
 		});
 	$('#reapparitionAsk').click(function() {	
 		document.getElementById('right').style.display='none';
@@ -538,7 +535,7 @@
 
 	$('#button-valider-question').click(function() {	
 		$('#ask-form-panels').addClass('animated slideOutLeft');
-		$('#description-ask').addClass('animated slideOutLeft');
+		$('#description-panel').addClass('animated slideOutLeft');
 		$('#ask-add-answers-panel').addClass('animated slideInRight');
 		$('#ask-add-answers-panel').css({"display": "block"});
 		$('#ask-chat-panel').addClass('animated slideInRight');
@@ -550,10 +547,6 @@
 		element=document.getElementById('reponses-answerers-block');
 		element.scrollTop = element.scrollHeight;
 	});	
-
-
-
-
 $('#login_link').click(function() {
 		$('#login_form').addClass('animated fadeInDown');
 		$('#login_form').css({"display": "block"});
