@@ -34,9 +34,10 @@
 	<body>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/objets.js"></script>
 	
 		<?php include('navbar.php'); ?>
-		<div  id="contenuPage" >
+		<div  id="main" >
 			<?php include('main.html'); ?>
 		</div>
 
@@ -44,7 +45,8 @@
 
 
 		<script>
-		   
+		   var mainuser = new User("fazega");
+		   var chat = new Chat(mainuser, null, "");
 		   
 		   jQuery(document).ready(function(){  
 			var ask = document.getElementById('ask');
@@ -54,28 +56,20 @@
 			var redim = function(){
 				ask.style.height='';
 				answer.style.height='';
-			if(ask.offsetHeight<window.innerHeight){
-				ask.style.height=window.innerHeight+'px';
-				answer.style.height=window.innerHeight+'px';
+				if(ask.offsetHeight<window.innerHeight){
+					ask.style.height=window.innerHeight+'px';
+					answer.style.height=window.innerHeight+'px';
+				}
+				if(ask.offsetHeight>answer.offsetHeight){
+					answer.style.height=ask.offsetHeight+'px';
+					ask.style.height=ask.offsetHeight+'px';
+					
+				}
+				if(ask.offsetHeight<answer.offsetHeight){
+				ask.style.height=answer.offsetHeight+'px';
+				answer.style.height=answer.offsetHeight+'px';
+				}
 			}
-			if(ask.offsetHeight>answer.offsetHeight){
-				answer.style.height=ask.offsetHeight+'px';
-				ask.style.height=ask.offsetHeight+'px';
-				
-			}
-			if(ask.offsetHeight<answer.offsetHeight){
-			ask.style.height=answer.offsetHeight+'px';
-			answer.style.height=answer.offsetHeight+'px';
-			}
-
-			
-			<!-- Je définis la hauteur du bloc Chat pour qu'il apparaisse entièrement à l'écran -->
-			var hauteur_chat=window.innerHeight-180-(document.getElementById('question-section').offsetHeight);
-			document.getElementById('chat-section').style.height=hauteur_chat+"px";
-			
-			<!-- Je définis la hauteur du bloc Réponses des answerers de Chat pour que sa taille corresponde au Chat -->
-			document.getElementById('reponses-answerers-block').style.height=hauteur_chat-80+"px";
-			};
 			window.addEventListener('resize',redim,false);
 			
 			redim();
@@ -87,7 +81,7 @@
 				$('#ask').removeClass('agrandirTaille');
 			}
 
-			$('#ask').click(function() {	
+			$('#ask').click(function() {
 				reini();
 				$('#ask').addClass('agrandirTaille');
 				document.getElementById('right').style.display='none';
@@ -113,7 +107,7 @@
 				document.getElementById('left').style.display='none';
 				document.getElementById('reapparitionAsk').style.display='block';
 			
-				});
+			});
 			$('#reapparitionAsk').click(function() {	
 				document.getElementById('right').style.display='none';
 				document.getElementById('reapparitionAnswer').style.display='block';
@@ -127,21 +121,29 @@
 				document.getElementById('reapparitionAnswer').style.display='block';
 						
 				});	
-				
+			
+			
+			
 
 			$('#button-valider-question').click(function() {	
 				$('#ask-form-panels').addClass('animated slideOutLeft');
 				$('#description-panel').addClass('animated slideOutLeft');
-				$('#ask-add-answers-panel').addClass('animated slideInRight');
-				$('#ask-add-answers-panel').css({"display": "block"});
-				$('#ask-chat-panel').addClass('animated slideInRight');
-				$('#ask-chat-panel').css({"display": "block"});
 
 				
 				redim();
-				<!-- Met le scroll en bas -->
-				element=document.getElementById('reponses-answerers-block');
-				element.scrollTop = element.scrollHeight;
+
+				$.get("chat.html", function(data) {
+					$("#main").html(data);
+				});
+				//ajout dynamique de javascript
+				var DSLScript  = document.createElement("script");
+				DSLScript.src  = "js/chat.js";
+				DSLScript.type = "text/javascript";
+				document.body.appendChild(DSLScript);
+				document.body.removeChild(DSLScript);
+				
+				chat.question = $('#question-form').val();
+				chat.users = new Array();
 			});	
 			$('#login_link').click(function() {
 				$('#login_form').addClass('animated fadeInDown');

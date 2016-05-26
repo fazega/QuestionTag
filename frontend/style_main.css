@@ -211,9 +211,6 @@ body {
 }
 
 @media all and (max-width: 767px) {
-	#ask-add-answers-panel{
-		opacity:0;
-	}
 	#ask-chat-panel .btn-circle.btn-lg {
 	width: 20px;
 	height: 20px;
@@ -225,12 +222,10 @@ body {
 }
 
 #ask-add-answers-panel{
-	z-index:1;
 	width:15vw;
 	position:absolute;
-	top:25px;
+	top:70px;
 	right:2vw;
-	display:none;
 }
 #box-answerer-envoye{
 	padding:10px;
@@ -252,8 +247,6 @@ body {
 
 }
 #ask-chat-panel{
-	z-index:1;
-	display:none;
 	width:100%;
 	position:absolute;
 	top:25px;
@@ -283,7 +276,6 @@ body {
 	
 }
 #reponses-answerers-block{
-	
 	width:90%;
 	margin-left:5%;
 	padding:20px;
