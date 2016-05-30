@@ -39,19 +39,17 @@
 	
 		<?php include('navbar.php'); ?>
 		<div  id="main" >
-			<?php include('main.html'); ?>
+			<?php include('main.php'); ?>
 		</div>
 
 		<?php include('formulaires.html'); ?>	
 
 
 		<script>
-		   w3IncludeHTML();
-		
 		   var mainuser = new User("fazega");
 		   var chat = new Chat(mainuser, null, "");
 		   
-		   jQuery(document).ready(function(){  
+		   $(document).ready(function(){  
 			var ask = document.getElementById('ask');
 			var answer = document.getElementById('answer');
 			
@@ -87,14 +85,12 @@
 			$('#ask').click(function() {
 				reini();
 				$('#ask').addClass('agrandirTaille');
-				document.getElementById('right').style.display='none';
 				document.getElementById('reapparitionAnswer').style.display='block';
 				redim();
 				});
 			$('#answer').click(function() {
 				reini();
 				$('#answer').addClass('agrandirTaille');
-				document.getElementById('left').style.display='none';
 				document.getElementById('reapparitionAsk').style.display='block';
 				redim();
 				});

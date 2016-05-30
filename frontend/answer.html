@@ -6,7 +6,8 @@
 		<p></br>Répondez ici aux questions des autres utilisateurs !</p>
 		<form class="form-inline" style="margin-top:50px;margin-bottom:50px;">
 			<button type="button" class="btn btn-default">Questions qui vous correspondent</button>
-			<div class="input-group" style="margin-left:50px;">
+			<!--le z-index est important (bug de bootstrap) !-->
+			<div class="input-group" style="z-index:0 !important;margin-left:50px;">
 				<input type="text" class="form-control" style="width:300px;" placeholder="Exemple : raspberry pi #informatique" />
 				<span class="input-group-btn">
 					<button class="btn btn-info" type="button">
