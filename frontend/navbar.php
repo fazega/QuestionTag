@@ -7,7 +7,7 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	  <a class="navbar-brand" href="#">QuestionTag</a>
+	  <a style="padding:0;" class="navbar-brand" href="#"><img alt="Brand" src="design/logo2.png"></a>
 	</div>
 	<div id="navbar" class="collapse navbar-collapse">
 	  <ul class="nav navbar-nav">
