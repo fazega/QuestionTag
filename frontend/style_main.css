@@ -284,10 +284,8 @@ body {
 }
 
 #myAnswers-section{
-height:30vh;
-width:100%;
-overflow-y:scroll;	
-overflow-x:hidden;
+	width:100%;
+	overflow-x:hidden;
 }
 
 #answer-myAnswers-panel .btn-circle.btn-lg {
@@ -297,7 +295,6 @@ overflow-x:hidden;
   padding: 6px 0;
   font-size: 12px;
   line-height: 1.428571429;
-  
 }
 .btn-custom {
   background-color: hsl(207, 54%, 23%) !important;

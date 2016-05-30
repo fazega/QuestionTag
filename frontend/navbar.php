@@ -13,6 +13,7 @@
 	  <ul class="nav navbar-nav">
 		<li id="home_link" class="active"><a href="index.php">Ask</a></li>
 		<li><a href="#about">Answer</a></li>
+		<li><a href="index.php">Home</a></li>
 	  </ul>
 	  <ul class="nav navbar-nav navbar-right">
 	  

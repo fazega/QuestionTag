@@ -35,6 +35,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/objets.js"></script>
+		<script src="http://www.w3schools.com/lib/w3data.js"></script>
 	
 		<?php include('navbar.php'); ?>
 		<div  id="main" >
@@ -45,6 +46,8 @@
 
 
 		<script>
+		   w3IncludeHTML();
+		
 		   var mainuser = new User("fazega");
 		   var chat = new Chat(mainuser, null, "");
 		   
