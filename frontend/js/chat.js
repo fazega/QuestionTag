@@ -1,7 +1,13 @@
 jQuery(document).ready(function(){
 	
-	window.removeEventListener('resize',redim,false);
-	var redim = function(){
+	
+	var redimchat = function(){
+		
+		var ask = document.getElementById('ask');
+		var askChatPanel = document.getElementById('ask-chat-panel');
+		askChatPanel.style.height=ask.style.height;
+		var askAddAnswerersPanel = document.getElementById('ask-add-answers-panel');
+		askAddAnswerersPanel.style.height=ask.style.height;
 		//Je définis la hauteur du bloc Chat pour qu'il apparaisse entièrement à l'écran
 		var hauteur_chat=window.innerHeight-180-(document.getElementById('question-section').offsetHeight);
 		document.getElementById('chat-section').style.height=hauteur_chat+"px";
@@ -9,9 +15,8 @@ jQuery(document).ready(function(){
 		//Je définis la hauteur du bloc Réponses des answerers de Chat pour que sa taille corresponde au Chat
 		document.getElementById('reponses-answerers-block').style.height=hauteur_chat-80+"px";
 	};
-	window.addEventListener('resize',redim,false);
-	redim();
-	
+	window.addEventListener('resize',redimchat,false);
+	redimchat();
 	
 	$('#question-section').html('<p><br> '+mainuser.pseudo+' : <strong>'+chat.question+'</strong></p>');
 

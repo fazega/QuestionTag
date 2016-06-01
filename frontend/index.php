@@ -35,7 +35,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/objets.js"></script>
-		<script src="http://www.w3schools.com/lib/w3data.js"></script>
 	
 		<?php include('navbar.php'); ?>
 		<div  id="main" >
@@ -70,7 +69,7 @@
 				ask.style.height=answer.offsetHeight+'px';
 				answer.style.height=answer.offsetHeight+'px';
 				}
-			}
+			};
 			window.addEventListener('resize',redim,false);
 			
 			redim();
@@ -127,23 +126,34 @@
 			$('#button-valider-question').click(function() {	
 				$('#ask-form-panels').addClass('animated slideOutLeft');
 				$('#description-panel').addClass('animated slideOutLeft');
-
+				$('#title').addClass('animated slideOutLeft');
 				
 				redim();
-
-				$.get("chat.html", function(data) {
-					$("#main").html(data);
-				});
+				var afterLoaded = function () {
 				//ajout dynamique de javascript
+			
 				var DSLScript  = document.createElement("script");
 				DSLScript.src  = "js/chat.js";
 				DSLScript.type = "text/javascript";
-				document.body.appendChild(DSLScript);
-				document.body.removeChild(DSLScript);
-				
+				var premier_fils = document.body.firstChild;
+				document.body.insertBefore(DSLScript , premier_fils);
+				$("#ask-chat-panel").css({"display": "block"});
+				$("#ask-chat-panel").addClass('slideInRight animated');
+
+				};
+				var chargerChat=function (){
+					$.get("chat.html", function(data) {
+					$("#ask").html(data);
+					complete : afterLoaded();
+				});
+				};
 				chat.question = $('#question-form').val();
 				chat.users = new Array();
-			});	
+				redim();
+				
+				setTimeout(chargerChat,1000);
+	
+				});	
 			$('#login_link').click(function() {
 				$('#login_form').addClass('animated fadeInDown');
 				$('#login_form').css({"display": "block"});
