@@ -13,7 +13,7 @@
 		<nav class="navbar navbar-default navbar-static-top questiontag-navbar">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">QuestionTag</a>
+					<a class="navbar-brand" href="#" style="padding: 0;"><img alt="Brand" src="design/logo2.png"></a>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="showSubscribe"><a href="#">></span> S'inscrire</a></li>
@@ -45,36 +45,50 @@
 			</div>
 		</div>
 		<div class="row connection-row" id="connection">
-		<div class="col-sm-6">
-			<div class="container login-container loginId">
-					<div class="login-title">
-						<h3>Connectez-vous !</h3>
-					</div>
-					<div class="form-box">
-						<form action="" method="">
-							<input id="login_username" placeholder="Email">
-							<input id="login_password" type="password" placeholder="Mot de passe">
-							<button class="btn btn-info btn-block login" id="connect_button">Connexion</button>
-						</form>
-					</div>
-			</div>
-		</div>
-		<div class="col-sm-6">
-			<div class="container login-container subscribeId">
+			<div class="col-sm-6">
+				<div class="container login-container loginId">
 						<div class="login-title">
-							<h3>Inscription</h3>
+							<h3>Connectez-vous !</h3>
 						</div>
 						<div class="form-box">
 							<form action="" method="">
-								<input name="user" type="email" placeholder="Nom complet">
-								<input name="user" type="email" placeholder="Email">
-								<input type="password" placeholder="Mot de passe">
-								<input type="password" placeholder="Répétez le mot de passe">
-								<button class="btn btn-info btn-block login">En avant !</button>
+								<input id="login_username" placeholder="Email">
+								<input id="login_password" type="password" placeholder="Mot de passe">
+								<button class="btn btn-info btn-block login" id="connect_button">Connexion</button>
 							</form>
 						</div>
 				</div>
-		</div>
+				<div class="container subscribeId loginLeftText">
+								<h3>Lorem ipsum !</h3><br/>
+								<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget felis pharetra odio lobortis vulputate. Morbi neque nisl, vestibulum et tellus eleifend, vehicula tempor augue. Nam ut interdum enim, sit amet scelerisque lacus. Suspendisse potenti. Ut fermentum sodales dolor, eu blandit orci. Curabitur vulputate eu nunc id pulvinar. Curabitur vitae consequat risus, a iaculis diam. Morbi et sollicitudin justo. Proin ac erat eu lectus convallis pretium scelerisque vel eros. Morbi vestibulum scelerisque vulputate. Integer vestibulum justo in tempor lacinia.
+								</p>
+						</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="logContainer">
+					<div class="container login-container subscribeId">
+								<div class="login-title">
+									<h3>Inscription</h3>
+								</div>
+								<div class="form-box">
+									<form action="" method="">
+										<input name="user" type="email" placeholder="Nom complet">
+										<input name="user" type="email" placeholder="Email">
+										<input type="password" placeholder="Mot de passe">
+										<input type="password" placeholder="Répétez le mot de passe">
+										<button class="btn btn-info btn-block login">En avant !</button>
+									</form>
+								</div>
+						</div>
+						<div class="container loginId loginRightText">
+								<h3>Lorem ipsum !</h3><br/>
+								<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget felis pharetra odio lobortis vulputate. Morbi neque nisl, vestibulum et tellus eleifend, vehicula tempor augue. Nam ut interdum enim, sit amet scelerisque lacus. Suspendisse potenti. Ut fermentum sodales dolor, eu blandit orci. Curabitur vulputate eu nunc id pulvinar. Curabitur vitae consequat risus, a iaculis diam. Morbi et sollicitudin justo. Proin ac erat eu lectus convallis pretium scelerisque vel eros. Morbi vestibulum scelerisque vulputate. Integer vestibulum justo in tempor lacinia.
+								</p>
+						</div>
+				</div>
+			</div>
 		</div>
 		<script type="text/javascript">
 				$(document).ready(function() 
@@ -95,8 +109,7 @@
 						$("html, body").animate({ scrollTop: $('.subscribeId').offset().top }, 1000);
 					});
 			
-					$('.subscribeId').fadeTo(1000,0);
-					$('.loginId').fadeTo(1000,0);
+					$('.subscribeId').fadeTo(1,0);
 					
 					$('#connect_button').click(function(e) {
 						e.preventDefault();
