@@ -81,13 +81,13 @@
 				$('#ask').removeClass('agrandirTaille');
 			}
 
-			$('#ask').click(function() {
+			$('#question-form').click(function() {
 				reini();
 				$('#ask').addClass('agrandirTaille');
 				document.getElementById('reapparitionAnswer').style.display='block';
 				redim();
 				});
-			$('#answer').click(function() {
+			$('#answer-search-form, #answer-matching-questions-button').click(function() {
 				reini();
 				$('#answer').addClass('agrandirTaille');
 				document.getElementById('reapparitionAsk').style.display='block';
