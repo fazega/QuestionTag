@@ -47,7 +47,7 @@
 		<script>
 		   var mainuser = new User("fazega");
 		   var chat = new Chat(mainuser, null, "");
-		   
+		  
 		   $(document).ready(function(){  
 			var ask = document.getElementById('ask');
 			var answer = document.getElementById('answer');

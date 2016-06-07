@@ -1,6 +1,4 @@
 jQuery(document).ready(function(){
-	
-	
 	var redimchat = function(){
 		
 		var ask = document.getElementById('ask');
