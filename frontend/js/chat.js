@@ -1,4 +1,9 @@
 jQuery(document).ready(function(){
+	$('#ask-add-answers-panel').hover(function() {
+					$("#card").css({"display": "block"});
+					},function() {
+					$('#ask-chat-panel').click(function() {$("#card").css({"display": "none"})});
+					});
 	var redimchat = function(){
 		
 		var ask = document.getElementById('ask');

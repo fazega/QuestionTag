@@ -107,7 +107,6 @@
 			
 			});
 			$('#reapparitionAsk').click(function() {	
-				document.getElementById('right').style.display='none';
 				document.getElementById('reapparitionAnswer').style.display='block';
 				document.getElementById('reapparitionAsk').style.display='none';
 				$('#answer').removeClass('agrandirTaille');
@@ -115,7 +114,6 @@
 				$('#answer').addClass('reduireTaille');
 				$('#ask').removeClass('reduireTaille');
 				$('#ask').addClass('agrandirTailleDeZero');
-				document.getElementById('right').style.display='none';
 				document.getElementById('reapparitionAnswer').style.display='block';
 						
 				});	
