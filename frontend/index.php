@@ -140,6 +140,11 @@
 				$("#ask-chat-panel").css({"display": "block"});
 				$("#ask-chat-panel").addClass('slideInRight animated');
 				
+				<!--TEST-->
+				chat.addUser(new User('Fazega',['Patron J80','muscu','info']));
+				chat.addUser(new User('PA',['Barreur','LudoMartinez','Reason']));
+				chat.addUser(new User('Ben',['Coucher de soleil','info','BGenEco']));
+				
 				window.removeEventListener('resize',redim,false);
 				};
 				var chargerChat=function (){
@@ -151,6 +156,9 @@
 				chat.question = $('#question-form').val();
 				chat.users = new Array();
 				chat.possibleUsers = new Array();
+				
+				<!--TEST-->
+				
 				redim();
 				
 				setTimeout(chargerChat,1000);

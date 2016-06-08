@@ -46,25 +46,25 @@ function Chat(mainuser, users, question, possibleUsers) {
 Chat.prototype.addUser=function(newUser){
 		var couleurBtn = "default";
 	if (this.users.length%5==0){
-		couleurBtn = "default";
+		newUser.couleurBtn = "default";
 	}
 	if (this.users.length%5==1){
-		couleurBtn = "danger";
+		newUser.couleurBtn = "danger";
 	}
 	if (this.users.length%5==2){
-		couleurBtn = "warning";
+		newUser.couleurBtn = "warning";
 	}
 	if (this.users.length%5==3){
-		couleurBtn = "success";
+		newUser.couleurBtn = "success";
 	}
 	if (this.users.length%5==4){
-		couleurBtn = "info";
+		newUser.couleurBtn = "info";
 	}
 	
 	this.users.unshift(newUser);
 	var data="<div id='"+newUser.pseudo+"' class='row answerer-block zoomInDown animated'>";
 		data +="<div class='div-bouton'>";
-		data +="<button type='button' class='btn btn-"+couleurBtn+" btn-circle btn-s'>"+newUser.pseudo.charAt(0).toUpperCase()+"</button>";
+		data +="<button type='button' class='btn btn-"+newUser.couleurBtn+" btn-circle btn-s'>"+newUser.pseudo.charAt(0).toUpperCase()+"</button>";
 		data +="</div>";
 		data +="<div class='div-description'>";
 		data +="<p>"+newUser.pseudo+"<br>"
@@ -102,25 +102,25 @@ Chat.prototype.deleteUser=function(delPseudo){
 Chat.prototype.addPossibleUser=function(newUser){
 	var couleurBtn = "default";
 	if (this.possibleUsers.length%5==0){
-		couleurBtn = "default";
+		newUser.couleurBtn = "default";
 	}
 	if (this.possibleUsers.length%5==1){
-		couleurBtn = "danger";
+		newUser.couleurBtn = "danger";
 	}
 	if (this.possibleUsers.length%5==2){
-		couleurBtn = "warning";
+		newUser.couleurBtn = "warning";
 	}
 	if (this.possibleUsers.length%5==3){
-		couleurBtn = "success";
+		newUser.couleurBtn = "success";
 	}
 	if (this.possibleUsers.length%5==4){
-		couleurBtn = "info";
+		newUser.couleurBtn = "info";
 	}
 	
 	this.possibleUsers.unshift(newUser);
 	var data="<div id='"+newUser.pseudo+"' class='row answerer-block zoomInDown animated'>";
 		data +="<div class='div-bouton'>";
-		data +="<button type='button' class='btn btn-"+couleurBtn+" btn-circle btn-s'>"+newUser.pseudo.charAt(0).toUpperCase()+"</button>";
+		data +="<button type='button' class='btn btn-"+newUser.couleurBtn+" btn-circle btn-s'>"+newUser.pseudo.charAt(0).toUpperCase()+"</button>";
 		data +="</div>";
 		data +="<div class='div-description'>";
 		data +="<p>"+newUser.pseudo+"<br>"
@@ -156,6 +156,7 @@ Chat.prototype.deletePossibleUser=function(delPseudo){
 function User(pseudo, skills) {
 	this.pseudo = pseudo;
 	this.skills = skills;
+	this.couleurBtn = "default";
 }
 
 function Message(message, date, user) {
