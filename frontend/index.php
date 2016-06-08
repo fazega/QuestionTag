@@ -45,7 +45,7 @@
 
 
 		<script>
-		   var mainuser = new User("fazega");
+		   var mainuser = new User("fazega",['info', 'maths']);
 		   var chat = new Chat(mainuser, null, "");
 		  
 		   $(document).ready(function(){  
@@ -139,7 +139,8 @@
 				document.body.insertBefore(DSLScript , premier_fils);
 				$("#ask-chat-panel").css({"display": "block"});
 				$("#ask-chat-panel").addClass('slideInRight animated');
-
+				
+				window.removeEventListener('resize',redim,false);
 				};
 				var chargerChat=function (){
 					$.get("chat.html", function(data) {
@@ -149,6 +150,7 @@
 				};
 				chat.question = $('#question-form').val();
 				chat.users = new Array();
+				chat.possibleUsers = new Array();
 				redim();
 				
 				setTimeout(chargerChat,1000);
