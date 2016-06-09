@@ -43,6 +43,15 @@ function Chat(mainuser, users, question, possibleUsers) {
 	
 }
 
+Chat.prototype.getUser=function(pseudo){
+	for(var i=0; i<this.users.length; i++)
+		{
+		 if(this.users[i].pseudo==pseudo)
+		 {
+			 return this.users[i];
+		 }
+		}
+};
 Chat.prototype.addUser=function(newUser){
 		var couleurBtn = "default";
 	if (this.users.length%5==0){
@@ -77,7 +86,23 @@ Chat.prototype.addUser=function(newUser){
 		data +="</div>";
 	$("#positionUsers").parent().append(data);
 	redim();
-	$('.del-croix').click(function(){chat.deleteUser($(this).attr('id').replace('del-croix-', ''));});
+	var chat1= this;
+	$('.del-croix').click(function(){chat1.deleteUser($(this).attr('id').replace('del-croix-', ''));});
+	$('.answerer-block').hover(function() {
+					
+					$("#btn-avatar").html("<button type='button' class='btn "+ 'btn-'+chat1.getUser($(this).attr('id')).couleurBtn +" btn-circle btn-lg'>"+$(this).attr('id').charAt(0)+"</button>")
+					$("#card-pseudo").html($(this).attr('id'));
+					$("#card-skills").html('');
+					for(var i=0; i<chat1.getUser($(this).attr('id')).skills.length; i++)
+						{
+							$("#card-skills").append('#'+chat1.getUser($(this).attr('id')).skills[i]+'<br>');
+						}
+					$("#card").css({"display": "block"});
+					},function() {
+					$('#ask-chat-panel').click(function() {$("#card").css({"display": "none"})});
+					});
+	
+	
 	$('#reponses-answerers-block').append("<p style='font-size:14px; color:grey;'><em>"+newUser.pseudo+" vient d'être ajouté au chat...</em></p>");
 	
 
