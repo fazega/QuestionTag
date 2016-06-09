@@ -42,8 +42,7 @@
 		</div>
 
 		<?php include('formulaires.html'); ?>	
-
-
+<div id="scriptid"></div>
 		<script>
 		   var mainuser = new User("fazega",['info', 'maths']);
 		   var chat = new Chat(mainuser, null, "");
@@ -84,40 +83,15 @@
 			$('#question-form').click(function() {
 				reini();
 				$('#ask').addClass('agrandirTaille');
-				document.getElementById('reapparitionAnswer').style.display='block';
+			
 				redim();
 				});
 			$('#answer-search-form, #answer-matching-questions-button').click(function() {
 				reini();
 				$('#answer').addClass('agrandirTaille');
-				document.getElementById('reapparitionAsk').style.display='block';
+				
 				redim();
 				});
-			$('#reapparitionAnswer').click(function() {
-				document.getElementById('left').style.display='none';
-				document.getElementById('reapparitionAnswer').style.display='none';
-				document.getElementById('reapparitionAsk').style.display='block';
-				$('#ask').removeClass('agrandirTaille');
-				$('#ask').removeClass('agrandirTailleDeZero');
-				$('#ask').addClass('reduireTaille');
-				$('#answer').removeClass('reduireTaille');
-				$('#answer').addClass('agrandirTailleDeZero');
-				document.getElementById('left').style.display='none';
-				document.getElementById('reapparitionAsk').style.display='block';
-			
-			});
-			$('#reapparitionAsk').click(function() {	
-				document.getElementById('reapparitionAnswer').style.display='block';
-				document.getElementById('reapparitionAsk').style.display='none';
-				$('#answer').removeClass('agrandirTaille');
-				$('#answer').removeClass('agrandirTailleDeZero');
-				$('#answer').addClass('reduireTaille');
-				$('#ask').removeClass('reduireTaille');
-				$('#ask').addClass('agrandirTailleDeZero');
-				document.getElementById('reapparitionAnswer').style.display='block';
-						
-				});	
-			
 			
 			
 
@@ -143,6 +117,9 @@
 				chat.addUser(new User('PA',['Barreur','LudoMartinez','Reason']));
 				chat.addUser(new User('Ben',['Coucher de soleil','info','BGenEco']));
 				
+				$.get("modal-add-answerers.html", function(data) {
+					$("body").append(data);
+				});
 				window.removeEventListener('resize',redim,false);
 				};
 				var chargerChat=function (){
@@ -329,6 +306,9 @@
 				
 		   });   
 		</script> 
+		
+		
+		
 
 	</body>
 </html>

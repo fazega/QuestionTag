@@ -331,6 +331,15 @@ margin:auto;
   line-height: 1.428571429;
   
 }
+.del-croix{
+	width:10px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+#add-users-modal{
+	z-index:2;
+}
 .btn-custom {
   background-color: hsl(207, 54%, 23%) !important;
   background-repeat: repeat-x;
@@ -456,4 +465,27 @@ background-color:rgba(214, 224, 226, 0.7);
   font-size: 36px;
   line-height: 1.33;
   border-radius: 35px;
+}
+.center {
+    margin-top:50px;   
+}
+
+.modal-header {
+	padding-bottom: 5px;
+}
+
+.modal-footer {
+    	padding: 0;
+	}
+    
+.modal-footer .btn-group button {
+	height:40px;
+	border-top-left-radius : 0;
+	border-top-right-radius : 0;
+	border: none;
+	border-right: 1px solid #ddd;
+}
+	
+.modal-footer .btn-group:last-child > button {
+	border-right: 0;
 }

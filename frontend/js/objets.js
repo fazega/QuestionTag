@@ -33,7 +33,7 @@ var redim = function(){
 		//Je définis la hauteur du bloc Réponses des answerers de Chat pour que sa taille corresponde au Chat
 		document.getElementById('reponses-answerers-block').style.height=hauteur_chat-80+"px";
 	};
-			
+	
 function Chat(mainuser, users, question, possibleUsers) {
 	this.mainuser = mainuser;
 	this.users = users;
@@ -73,10 +73,11 @@ Chat.prototype.addUser=function(newUser){
 			data += "#"+newUser.skills[i]+"<br/>";
 		}
 		data += "</p>";
-		data +="</div>";
+		data +="<a href='#'><img alt='Del' src='croix.png' class='del-croix' id='del-croix-"+newUser.pseudo+"'/></a></div>";
 		data +="</div>";
 	$("#positionUsers").parent().append(data);
 	redim();
+	$('.del-croix').click(function(){chat.deleteUser($(this).attr('id').replace('del-croix-', ''));});
 	$('#reponses-answerers-block').append("<p style='font-size:14px; color:grey;'><em>"+newUser.pseudo+" vient d'être ajouté au chat...</em></p>");
 	
 
