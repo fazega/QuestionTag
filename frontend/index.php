@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start(); 
+if(count($_SESSION)==0 OR $_SESSION['pseudo']==null)
+{
+	header("location: welcome.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -42,11 +47,12 @@
 		</div>
 
 		<?php include('formulaires.html'); ?>	
-<div id="scriptid"></div>
+
+
 		<script>
-		   var mainuser = new User("fazega",['info', 'maths']);
+		   var mainuser = new User("fazega");
 		   var chat = new Chat(mainuser, null, "");
-		  
+		   
 		   $(document).ready(function(){  
 			var ask = document.getElementById('ask');
 			var answer = document.getElementById('answer');
@@ -80,18 +86,45 @@
 				$('#ask').removeClass('agrandirTaille');
 			}
 
-			$('#question-form').click(function() {
+			$('#ask').click(function() {
 				reini();
 				$('#ask').addClass('agrandirTaille');
-			
+				document.getElementById('reapparitionAnswer').style.display='block';
 				redim();
 				});
-			$('#answer-search-form, #answer-matching-questions-button').click(function() {
+			$('#answer').click(function() {
 				reini();
 				$('#answer').addClass('agrandirTaille');
-				
+				document.getElementById('reapparitionAsk').style.display='block';
 				redim();
 				});
+			$('#reapparitionAnswer').click(function() {
+				document.getElementById('left').style.display='none';
+				document.getElementById('reapparitionAnswer').style.display='none';
+				document.getElementById('reapparitionAsk').style.display='block';
+				$('#ask').removeClass('agrandirTaille');
+				$('#ask').removeClass('agrandirTailleDeZero');
+				$('#ask').addClass('reduireTaille');
+				$('#answer').removeClass('reduireTaille');
+				$('#answer').addClass('agrandirTailleDeZero');
+				document.getElementById('left').style.display='none';
+				document.getElementById('reapparitionAsk').style.display='block';
+			
+			});
+			$('#reapparitionAsk').click(function() {	
+				document.getElementById('right').style.display='none';
+				document.getElementById('reapparitionAnswer').style.display='block';
+				document.getElementById('reapparitionAsk').style.display='none';
+				$('#answer').removeClass('agrandirTaille');
+				$('#answer').removeClass('agrandirTailleDeZero');
+				$('#answer').addClass('reduireTaille');
+				$('#ask').removeClass('reduireTaille');
+				$('#ask').addClass('agrandirTailleDeZero');
+				document.getElementById('right').style.display='none';
+				document.getElementById('reapparitionAnswer').style.display='block';
+						
+				});	
+			
 			
 			
 
@@ -111,16 +144,7 @@
 				document.body.insertBefore(DSLScript , premier_fils);
 				$("#ask-chat-panel").css({"display": "block"});
 				$("#ask-chat-panel").addClass('slideInRight animated');
-				
-				<!--TEST-->
-				chat.addUser(new User('Fazega',['Patron J80','muscu','info']));
-				chat.addUser(new User('PA',['Barreur','LudoMartinez','Reason']));
-				chat.addUser(new User('Ben',['Coucher de soleil','info','BGenEco']));
-				
-				$.get("modal-add-answerers.html", function(data) {
-					$("body").append(data);
-				});
-				window.removeEventListener('resize',redim,false);
+
 				};
 				var chargerChat=function (){
 					$.get("chat.html", function(data) {
@@ -130,10 +154,6 @@
 				};
 				chat.question = $('#question-form').val();
 				chat.users = new Array();
-				chat.possibleUsers = new Array();
-				
-				<!--TEST-->
-				
 				redim();
 				
 				setTimeout(chargerChat,1000);
@@ -199,6 +219,12 @@
 					// Code à exécuter apres la transition
 					$('#signup_form').addClass('finished');
 				});
+			});
+			
+			$('#gestion_compte_button').click(function(e)
+			{
+				e.preventDefault();
+				location.href = "account_management.php";
 			});
 			
 			$('#signup_passwordconfirm_input').blur(function(e) {
@@ -306,9 +332,6 @@
 				
 		   });   
 		</script> 
-		
-		
-		
 
 	</body>
 </html>

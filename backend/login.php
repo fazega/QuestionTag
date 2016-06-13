@@ -20,12 +20,14 @@
 			if($donnees['password'] == $password) {
 				session_start();
 				$_SESSION['pseudo']=$pseudo;
+				$_SESSION['id']=$donnees['id'];
 				echo 'success';
 			}
 			
 			//Sinon, bah on renvoie un fail :p
 			else {
 				echo 'fail;password';
+				header('location: welcome.php');
 			}
 		}
 		else {
