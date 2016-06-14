@@ -7,12 +7,12 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	  <a style="padding:0;" class="navbar-brand" href="#"><img alt="Brand" src="design/logo2.png"></a>
+	  <a style="padding:0;" class="navbar-brand" href="index.php"><img alt="Brand" src="design/logo2.png"></a>
 	</div>
 	<div id="navbar" class="collapse navbar-collapse">
 	  <ul class="nav navbar-nav">
-		<li id="home_link" class="active"><a href="index.php">Ask</a></li>
-		<li><a href="#about">Answer</a></li>
+		<li id="ask-link" class="active"><a href="#">Ask</a></li>
+		<li id="answer-link"><a href="#about">Answer</a></li>
 		<li><a href="index.php">Home</a></li>
 	  </ul>
 	  <ul class="nav navbar-nav navbar-right">
@@ -26,9 +26,29 @@
 					<button id='disconnect_button' class='btn btn-default navbar-btn'><span class='glyphicon glyphicon-off'></span></button>
 				</div>
 			</li>
-		<?php } else { header('location: welcome.php'); }; ?>
+		<?php } else { 
+			header('location: welcome.php');
+			} ?>
 		
 	  </ul>
 	</div><!--/.nav-collapse -->
   </div>
 </nav>
+<script>
+$('#answer-link').click(function() {
+				$('#ask').removeClass('agrandirTaille');
+				$('#ask').removeClass('agrandirTailleDeZero');
+				$('#ask').addClass('reduireTaille');
+				$('#answer').removeClass('reduireTaille');
+				$('#answer').addClass('agrandirTailleDeZero');
+				
+			});
+$('#ask-link').click(function() {	
+				
+				$('#answer').removeClass('agrandirTaille');
+				$('#answer').removeClass('agrandirTailleDeZero');
+				$('#answer').addClass('reduireTaille');
+				$('#ask').removeClass('reduireTaille');
+				$('#ask').addClass('agrandirTailleDeZero');
+				});	
+</script>

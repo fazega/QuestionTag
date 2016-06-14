@@ -5,9 +5,9 @@
 	<div id='description-panel' class='row'>
 		<p></br>Répondez ici aux questions des autres utilisateurs !</p>
 		<form class="form-inline" style="margin-top:50px;margin-bottom:50px;">
-			<button type="button" class="btn btn-default">Questions qui vous correspondent</button>
+			<button id='answer-matching-questions-button' type="button" class="btn btn-default">Questions qui vous correspondent</button>
 			<!--le z-index est important (bug de bootstrap) !-->
-			<div class="input-group" style="z-index:0 !important;margin-left:50px;">
+			<div id='answer-search-form' class="input-group" style="z-index:0 !important;margin-left:50px;">
 				<input type="text" class="form-control" style="width:300px;" placeholder="Exemple : raspberry pi #informatique" />
 				<span class="input-group-btn">
 					<button class="btn btn-info" type="button">
@@ -24,44 +24,54 @@
 				<fieldset><legend></legend>
 				<p>5 dernières questions posées</p>
 				<div id='myAnswers-section'>
-					<div class="row message-block-gauche">
-						<div class="div-bouton">
-							<button type="button" class="btn btn-success btn-circle btn-lg">P</button>
-						</div>
-						<div class="div-description">
-							<p><strong>PA</strong><br>Comment faire cuire des pâtes ?</p>	
-						</div>
-					</div>
-					<div class="row message-block-gauche">
-						<div class="div-bouton">
-							<button type="button" class="btn btn-danger btn-circle btn-lg">P</button>
-						</div>
-						<div class="div-description">
-							<p><strong>Michel</strong><br>Comment faire pour se lever tôt?</p>	
+					<div class="row message-block-gauche answer-question-block">
+						<div style="display:inline-block; width:80%;">
+							<div class="div-bouton">
+								<button type="button" class="btn btn-success btn-circle btn-lg">P</button>
+							</div>
+							<div class="div-description">
+								<p><strong>PA</strong><br>Comment faire cuire des pâtes ?</p>	
+							</div>
 						</div>
 					</div>
-					<div class="row message-block-gauche">
+					<div class="row message-block-gauche answer-question-block">
+						<div style="display:inline-block; width:80%;">
+							<div class="div-bouton">
+								<button type="button" class="btn btn-danger btn-circle btn-lg">P</button>
+							</div>
+							<div class="div-description">
+								<p><strong>Michel</strong><br>Comment faire pour se lever tôt?</p>	
+							</div>
+						</div>
+					</div>
+					<div class="row message-block-gauche answer-question-block">
+						<div style="display:inline-block; width:80%;">
 							<div class="div-bouton">
 								<button type="button" class="btn btn-warning btn-circle btn-lg">P</button>
 							</div>
 							<div class="div-description">
 								<p><strong>Ben</strong><br>Pourquoi mettre un coucher de soleil en fond ?</p>	
 							</div>
+						</div> 
 					</div>
-					<div class="row message-block-gauche">
-						<div class="div-bouton">
-							<button type="button" class="btn btn-default btn-circle btn-lg">P</button>
-						</div>
-						<div class="div-description">
-							<p><strong>PA</strong><br>Quand?</p>	
+					<div class="row message-block-gauche answer-question-block">
+						<div style="display:inline-block; width:80%;">
+							<div class="div-bouton">
+								<button type="button" class="btn btn-default btn-circle btn-lg">P</button>
+							</div>
+							<div class="div-description">
+								<p><strong>PA</strong><br>Quand?</p>	
+							</div>
 						</div>
 					</div>
-					<div class="row message-block-gauche">
-						<div class="div-bouton">
-							<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
-						</div>
-						<div class="div-description">
-							<p><strong>PA</strong><br>Demande à Ducoulombier</p>	
+					<div class="row message-block-gauche answer-question-block">
+						<div style="display:inline-block; width:80%;">
+							<div class="div-bouton">
+								<button type="button" class="btn btn-info btn-circle btn-lg">P</button>
+							</div>
+							<div class="div-description">
+								<p><strong>PA</strong><br>Demande à Ducoulombier</p>	
+							</div>
 						</div>
 					</div>
 				</div>

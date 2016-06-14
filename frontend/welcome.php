@@ -52,7 +52,7 @@
 						</div>
 						<div class="form-box">
 							<form action="" method="">
-								<input id="login_username" placeholder="Email">
+								<input id="login_username" placeholder="Pseudo">
 								<input id="login_password" type="password" placeholder="Mot de passe">
 								<button class="btn btn-info btn-block login" id="connect_button">Connexion</button>
 							</form>

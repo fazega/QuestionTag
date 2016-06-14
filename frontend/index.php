@@ -1,8 +1,9 @@
-<?php session_start(); 
-if(count($_SESSION)==0 OR $_SESSION['pseudo']==null)
-{
-	header("location: welcome.php");
-}
+<?php 
+	session_start();
+	if(count($_SESSION)==0 OR $_SESSION['pseudo']==null)
+	{
+		header("location: welcome.php");
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +41,8 @@ if(count($_SESSION)==0 OR $_SESSION['pseudo']==null)
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/objets.js"></script>
+		<script src="js/answer.js"></script>
+		<script src="js/ask.js"></script>
 	
 		<?php include('navbar.php'); ?>
 		<div  id="main" >
@@ -50,9 +53,10 @@ if(count($_SESSION)==0 OR $_SESSION['pseudo']==null)
 
 
 		<script>
-		   var mainuser = new User("fazega");
-		   var chat = new Chat(mainuser, null, "");
-		   
+		   var mainuser = new User("fazega",['info', 'maths']);
+		   var chat_ask = new Chat(mainuser, null, "");
+		   var chat_answer = new Chat(mainuser, null, "");
+		  
 		   $(document).ready(function(){  
 			var ask = document.getElementById('ask');
 			var answer = document.getElementById('answer');
@@ -86,79 +90,17 @@ if(count($_SESSION)==0 OR $_SESSION['pseudo']==null)
 				$('#ask').removeClass('agrandirTaille');
 			}
 
-			$('#ask').click(function() {
+			$('#question-form').click(function() {
 				reini();
 				$('#ask').addClass('agrandirTaille');
-				document.getElementById('reapparitionAnswer').style.display='block';
 				redim();
 				});
-			$('#answer').click(function() {
+			$('#answer-search-form, #answer-matching-questions-button').click(function() {
 				reini();
 				$('#answer').addClass('agrandirTaille');
-				document.getElementById('reapparitionAsk').style.display='block';
 				redim();
 				});
-			$('#reapparitionAnswer').click(function() {
-				document.getElementById('left').style.display='none';
-				document.getElementById('reapparitionAnswer').style.display='none';
-				document.getElementById('reapparitionAsk').style.display='block';
-				$('#ask').removeClass('agrandirTaille');
-				$('#ask').removeClass('agrandirTailleDeZero');
-				$('#ask').addClass('reduireTaille');
-				$('#answer').removeClass('reduireTaille');
-				$('#answer').addClass('agrandirTailleDeZero');
-				document.getElementById('left').style.display='none';
-				document.getElementById('reapparitionAsk').style.display='block';
 			
-			});
-			$('#reapparitionAsk').click(function() {	
-				document.getElementById('right').style.display='none';
-				document.getElementById('reapparitionAnswer').style.display='block';
-				document.getElementById('reapparitionAsk').style.display='none';
-				$('#answer').removeClass('agrandirTaille');
-				$('#answer').removeClass('agrandirTailleDeZero');
-				$('#answer').addClass('reduireTaille');
-				$('#ask').removeClass('reduireTaille');
-				$('#ask').addClass('agrandirTailleDeZero');
-				document.getElementById('right').style.display='none';
-				document.getElementById('reapparitionAnswer').style.display='block';
-						
-				});	
-			
-			
-			
-
-			$('#button-valider-question').click(function() {	
-				$('#ask-form-panels').addClass('animated slideOutLeft');
-				$('#description-panel').addClass('animated slideOutLeft');
-				$('#title').addClass('animated slideOutLeft');
-				
-				redim();
-				var afterLoaded = function () {
-				//ajout dynamique de javascript
-			
-				var DSLScript  = document.createElement("script");
-				DSLScript.src  = "js/chat.js";
-				DSLScript.type = "text/javascript";
-				var premier_fils = document.body.firstChild;
-				document.body.insertBefore(DSLScript , premier_fils);
-				$("#ask-chat-panel").css({"display": "block"});
-				$("#ask-chat-panel").addClass('slideInRight animated');
-
-				};
-				var chargerChat=function (){
-					$.get("chat.html", function(data) {
-					$("#ask").html(data);
-					complete : afterLoaded();
-				});
-				};
-				chat.question = $('#question-form').val();
-				chat.users = new Array();
-				redim();
-				
-				setTimeout(chargerChat,1000);
-	
-				});	
 			$('#login_link').click(function() {
 				$('#login_form').addClass('animated fadeInDown');
 				$('#login_form').css({"display": "block"});
