@@ -24,7 +24,7 @@ jQuery(document).ready(function(){
 					$("#answer").find($("#chat-panel")).css({"display": "block"});
 					$("#answer").find($("#chat-panel")).addClass('slideInRight animated');
 					
-					
+					window.removeEventListener('resize',redim,false);
 					chat_answer.initJS($("#answer"));
 					
 					if (jrep["status"]=='success') {
@@ -36,6 +36,8 @@ jQuery(document).ready(function(){
 					else {
 						chat_answer.addMessage('SYSTEM', 'Erreur.');
 					}
+					
+					
 				};
 				chat_answer.users = new Array();
 				chat_answer.possibleUsers = new Array();

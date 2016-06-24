@@ -12,13 +12,12 @@ jQuery(document).ready(function(){
 			
 			chat_ask.addMessage("SYSTEM", "En attente de reponses ...");
 			
+			window.removeEventListener('resize',redim,false);
 			chat_ask.initJS($("#ask"));
 			
 			$.get("modal-add-answerers.html", function(data) {
 					$("body").append(data);
 			});
-			
-			window.removeEventListener('resize',redim,false);
 		};
 		var chargerChat=function (){
 			$.get("../frontend/chat.html", function(data) {

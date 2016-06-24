@@ -7,23 +7,23 @@ var redim = function(){
 	
 	if(ask.offsetHeight<window.innerHeight){
 		ask.css({"height":window.innerHeight+'px'});
-		answer.style.height=window.innerHeight+'px';
+		answer.css({"height":window.innerHeight+'px'});
 	}
 	if(ask.offsetHeight>answer.offsetHeight){
-		answer.style.height=ask.offsetHeight+'px';
-		ask.style.height=ask.offsetHeight+'px';
+		ask.css({"height":ask.offsetheight+'px'});
+		answer.css({"height":ask.offsetheight+'px'});
 	}
 	if(ask.offsetHeight<answer.offsetHeight){
-		ask.style.height=answer.offsetHeight+'px';
-		answer.style.height=answer.offsetHeight+'px';
+		ask.css({"height":answer.offsetheight+'px'});
+		answer.css({"height":answer.offsetheight+'px'});
 	}
 	if(ask.offsetHeight<chatPanel.offsetHeight){
-		ask.style.height=chatPanel.offsetHeight+'px';
-		answer.style.height=chatPanel.offsetHeight+'px';
+		ask.css({"height":chatPanel.offsetheight+'px'});
+		answer.css({"height":chatPanel.offsetheight+'px'});
 	}
 	
-	chatPanel.css({"height":ask.offsetHeight});
-	addAnswerersPanel.css({"height":ask.offsetHeight});
+	chatPanel.css({"height":answer.height()});
+	addAnswerersPanel.css({"height":answer.height()});
 	//Je définis la hauteur du bloc Chat pour qu'il apparaisse entièrement à l'écran
 	var hauteur_chat=window.innerHeight-180-($('#question-section').offsetHeight);
 	$('#chat-section').css({"height":hauteur_chat+" px"});
@@ -80,16 +80,17 @@ Chat.prototype.initJS = function(superdiv) {
 	var chat = this;
 
 	var redimchat = function(){
+		superdiv.css({"height":(window.innerHeight-50)+"px"});
 		var chatPanel = superdiv.find($('#chat-panel'));
-		chatPanel.css({"height":superdiv.height()});
+		chatPanel.css({"height":superdiv.height()+"px"});
 		var addAnswerersPanel = superdiv.find($('#add-answers-panel'));
-		addAnswerersPanel.css({"height":superdiv.height()});
+		addAnswerersPanel.css({"height":superdiv.height()+"px"});
 		//Je définis la hauteur du bloc Chat pour qu'il apparaisse entièrement à l'écran
-		var hauteur_chat=window.innerHeight-180-(superdiv.find($('#question-section')).offsetHeight);
-		superdiv.find($('#chat-section')).css({"height":hauteur_chat+" px"});
+		var hauteur_chat=chatPanel.height()-150;
+		superdiv.find($('#chat-section')).css({"height":hauteur_chat+"px"});
 		
 		//Je définis la hauteur du bloc Réponses des answerers de Chat pour que sa taille corresponde au Chat
-		superdiv.find($('#reponses-answerers-block')).css({"height":hauteur_chat-80+" px"});
+		superdiv.find($('#reponses-answerers-block')).css({"height":hauteur_chat-80+"px"});
 	};
 	window.addEventListener('resize',redimchat,false);
 	redimchat();
